@@ -4798,11 +4798,11 @@ class MacAnalysis:
     def getBreynaert2013(self, tn=1):
         self.prepareData("PLP38")
         atype = self.h.getSurvName("c colitis group")
-        atypes = ['C', 'DA', 'D1', 'D2', 'D3', 'A'];
-        ahash = {'2 cycles DSS with additional recovery period':1,
+        atypes = ['C', 'A', 'D1', 'D2', 'D3', 'DA'];
+        ahash = {'2 cycles DSS with additional recovery period':5,
                 'control':0,
                 '1 cycle DSS':2,
-                'acute colitis':5,
+                'acute colitis':1,
                 '3 cycles DSS':4,
                 '2 cycles DSS':3}
         if (tn == 2):
@@ -4816,6 +4816,41 @@ class MacAnalysis:
                 '3 cycles DSS':1,'acute colitis':1,
                 '2 cycles DSS':1}            
         self.initData(atype, atypes, ahash)
+        
+    def getBreynaert2013_1(self):
+        self.prepareData("PLP38")
+        atype = self.h.getSurvName("c colitis group")
+        atypes = ['C', 'A'];
+        ahash = {'control':0,'acute colitis':1}
+        self.initData(atype, atypes, ahash)
+        
+    def getBreynaert2013_2(self):
+        self.prepareData("PLP38")
+        atype = self.h.getSurvName("c colitis group")
+        atypes = ['C', 'D1'];
+        ahash = {'control':0,'1 cycle DSS':1}
+        self.initData(atype, atypes, ahash)
+        
+    def getBreynaert2013_3(self):
+        self.prepareData("PLP38")
+        atype = self.h.getSurvName("c colitis group")
+        atypes = ['C', 'D2'];
+        ahash = {'control':0,'2 cycles DSS':1}
+        self.initData(atype, atypes, ahash) 
+        
+    def getBreynaert2013_4(self):
+        self.prepareData("PLP38")
+        atype = self.h.getSurvName("c colitis group")
+        atypes = ['C', 'D3'];
+        ahash = {'control':0,'3 cycles DSS':1}
+        self.initData(atype, atypes, ahash)
+        
+    def getBreynaert2013_5(self):
+        self.prepareData("PLP38")
+        atype = self.h.getSurvName("c colitis group")
+        atypes = ['C', 'DA'];
+        ahash = {'control':0,'2 cycles DSS with additional recovery period':1}
+        self.initData(atype, atypes, ahash)         
 
     def getGerstgrasser2017(self):
         self.prepareData("PLP36")
@@ -5063,8 +5098,66 @@ class MacAnalysis:
             ahash = {'Cecum_Flore WT_Day0':0,
                     'Cecum_Flore WT_Day4':0,
                     'Cecum_Flore WT_Day12':1,
-                    'Cecum_Flore WT_Day22':1}            
+                    'Cecum_Flore WT_Day22':1} 
+        if (tn == 4):
+            atypes = ['0', '4','12', '22']
+            ahash = {'Cecum_Flore WT_Day0':0,
+                    'Cecum_Flore WT_Day4':1,
+                    'Cecum_Flore WT_Day12':2,
+                    'Cecum_Flore WT_Day22':3}
+            
         self.initData(atype, atypes, ahash)
+        
+    def getLamas2018_4(self):
+        self.prepareData("PLP99")
+        atype = self.h.getSurvName("c src1")
+        atypes = ['0', '4']
+        ahash = {'Cecum_Flore WT_Day0':0,'Cecum_Flore WT_Day4':1}
+        self.initData(atype, atypes, ahash)
+        
+    def getLamas2018_12(self):
+        self.prepareData("PLP99")
+        atype = self.h.getSurvName("c src1")
+        atypes = ['0', '12']
+        ahash = {'Cecum_Flore WT_Day0':0,'Cecum_Flore WT_Day12':1}
+        self.initData(atype, atypes, ahash) 
+        
+    def getLamas2018_22(self):
+        self.prepareData("PLP99")
+        atype = self.h.getSurvName("c src1")
+        atypes = ['0', '22']
+        ahash = {'Cecum_Flore WT_Day0':0,'Cecum_Flore WT_Day22':1}
+        self.initData(atype, atypes, ahash)   
+        
+    def getLamas2018_0WK(self):
+        self.prepareData("PLP99")
+        atype = self.h.getSurvName("c src1")
+        atypes = ['WT', 'KO']
+        ahash = {'Cecum_Flore WT_Day0':0,'Cecum_Flore KO_Day0':1}
+        self.initData(atype, atypes, ahash)
+        
+    def getLamas2018_4WK(self):
+        self.prepareData("PLP99")
+        atype = self.h.getSurvName("c src1")
+        atypes = ['WT', 'KO']
+        ahash = {'Cecum_Flore WT_Day4':0,'Cecum_Flore KO_Day4':1}
+        self.initData(atype, atypes, ahash)        
+        
+        
+    def getLamas2018_12WK(self):
+        self.prepareData("PLP99")
+        atype = self.h.getSurvName("c src1")
+        atypes = ['WT', 'KO']
+        ahash = {'Cecum_Flore WT_Day12':0,'Cecum_Flore KO_Day12':1}
+        self.initData(atype, atypes, ahash) 
+        
+    def getLamas2018_22WK(self):
+        self.prepareData("PLP99")
+        atype = self.h.getSurvName("c src1")
+        atypes = ['WT', 'KO']
+        ahash = {'Cecum_Flore WT_Day22':0,'Cecum_Flore KO_Day22':1}
+        self.initData(atype, atypes, ahash)        
+        
 
     def getFuso1(self):
         self.prepareData("CRC112.2")
@@ -6183,10 +6276,25 @@ class MacAnalysis:
         
     def getNoble2(self):
         self.prepareData("PLP58")
+        atype = self.h.getSurvName("ArrayID")
+        atypes = ['Yellow', 'Green']
+        ahash = {'GSM522252': 0,'GSM522243': 0,'GSM522228': 0,'GSM522213': 0,'GSM522209': 0,'GSM522192': 0,'GSM522189': 0,'GSM522184': 0,'GSM522182':0, 'GSM522263': 1,'GSM522256': 1,'GSM522214': 1,'GSM522190': 1,'GSM522183': 1}
+        self.initData(atype, atypes, ahash)
+
+    def getNoble3(self):
+        self.prepareData("PLP58")
         atype = self.h.getSurvName("c inflammation status")
         atypes = ['inflamed', 'uninflamed']
         ahash = {'inflamed':0, 'uninflamed':1}
-        self.initData(atype, atypes, ahash)        
+        self.initData(atype, atypes, ahash)  
+        
+    def getNoble4(self):
+        self.prepareData("PLP58")
+        atype = self.h.getSurvName("ArrayID")
+        atypes = ['1-3', '2-3', '1-1']
+        ahash = {'GSM522252': 0,'GSM522228': 0,'GSM522213': 0,'GSM522192': 0,'GSM522189': 0,'GSM522182': 0, 'GSM522255': 1,'GSM522234': 1,'GSM522218': 1,'GSM522215': 1,'GSM522209': 1,'GSM522204': 1,'GSM522201': 1,'GSM522188': 1,'GSM522184': 1,'GSM522177': 1, 'GSM522260': 2,'GSM522249': 2,'GSM522230': 2,'GSM522227': 2,'GSM522187': 2,'GSM522179': 2}
+        self.initData(atype, atypes, ahash)         
+        
 
     def getColonGEO(self):
         self.prepareData("CRC115")
@@ -18282,7 +18390,16 @@ class MacAnalysis:
         atypes = ['Normal Control','IBD']
         #atypes = ['Normal Control','Ulcerative Colitis']
         ahash = {'Normal Control':0,'Crohn\'s Disease_T':1,'Crohn\'s Disease_NT':1,'Ulcerative Colitis_T':1,'Ulcerative Colitis_NT':1}
-        self.initData(atype, atypes, ahash)        
+        self.initData(atype, atypes, ahash)
+        
+    def getdharmasiriIBD_UT(self, tn=1):
+        self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c patient diagnosis (ch1)')
+        #atypes = ['Normal Control','IBD']
+        atypes = ['Normal Control','IBD']
+        #atypes = ['Normal Control','Ulcerative Colitis']
+        ahash = {'Normal Control':0,'Crohn\'s Disease_NT':1,'Ulcerative Colitis_NT':1}
+        self.initData(atype, atypes, ahash)          
         
     def getdharmasiriCD(self, tn=1):
         self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
@@ -18293,6 +18410,7 @@ class MacAnalysis:
         ahash = {'Normal Control':0,'Crohn\'s Disease_NT':1,'Crohn\'s Disease_T':2}
         self.initData(atype, atypes, ahash) 
         
+        
     def getdharmasiriCD2(self, tn=1):
         self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
         atype = self.h.getSurvName('c patient diagnosis (ch1)')
@@ -18300,7 +18418,25 @@ class MacAnalysis:
         atypes = ['Normal Control','Crohn\'s Disease']
         #atypes = ['Normal Control','Ulcerative Colitis']
         ahash = {'Normal Control':0,'Crohn\'s Disease_NT':1,'Crohn\'s Disease_T':1}
-        self.initData(atype, atypes, ahash)         
+        self.initData(atype, atypes, ahash) 
+        
+    def getdharmasiriCD_NT(self, tn=1):
+        self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c patient diagnosis (ch1)')
+        #atypes = ['Normal Control','IBD']
+        atypes = ['Normal Control','Crohn\'s Disease_NT']
+        #atypes = ['Normal Control','Ulcerative Colitis']
+        ahash = {'Normal Control':0,'Crohn\'s Disease_NT':1}
+        self.initData(atype, atypes, ahash) 
+        
+    def getdharmasiriCD_T(self, tn=1):
+        self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c patient diagnosis (ch1)')
+        #atypes = ['Normal Control','IBD']
+        atypes = ['Normal Control','Crohn\'s Disease_T']
+        #atypes = ['Normal Control','Ulcerative Colitis']
+        ahash = {'Normal Control':0,'Crohn\'s Disease_T':1}
+        self.initData(atype, atypes, ahash)        
         
     def getdharmasiriUC(self, tn=1):
         self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
@@ -18318,7 +18454,25 @@ class MacAnalysis:
         atypes = ['Normal Control','Ulcerative Colitis']
         #atypes = ['Normal Control','Ulcerative Colitis']
         ahash = {'Normal Control':0,'Ulcerative Colitis_NT':1,'Ulcerative Colitis_T':1}
-        self.initData(atype, atypes, ahash)         
+        self.initData(atype, atypes, ahash) 
+        
+    def getdharmasiriUC_NT(self, tn=1):
+        self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c patient diagnosis (ch1)')
+        #atypes = ['Normal Control','IBD']
+        atypes = ['Normal Control','Ulcerative Colitis_NT']
+        #atypes = ['Normal Control','Ulcerative Colitis']
+        ahash = {'Normal Control':0,'Ulcerative Colitis_NT':1}
+        self.initData(atype, atypes, ahash) 
+        
+    def getdharmasiriUC_T(self, tn=1):
+        self.prepareData("SS32","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c patient diagnosis (ch1)')
+        #atypes = ['Normal Control','IBD']
+        atypes = ['Normal Control','Ulcerative Colitis_T']
+        #atypes = ['Normal Control','Ulcerative Colitis']
+        ahash = {'Normal Control':0,'Ulcerative Colitis_T':1}
+        self.initData(atype, atypes, ahash)        
         
     def getPavlidis2022(self, tn=1):
         self.prepareData("IBD53","/Users/dtv004/public_html/Hegemon/explore.conf")
@@ -18920,7 +19074,7 @@ class MacAnalysis:
     def getTAM2(self, tn=1, tb=0):
         self.prepareData("PGSS7","/home/saptarshi.sinha/Hegemon/explore.conf")
         atype = self.h.getSurvName('ArrayId')
-        atypes = ['Tumor_TAMs_WT', 'Tumor_TAMs_GIVKO']
+        atypes = ['TAMs_WT', 'TAMs_GIVKO']
         ahash = {'Tumor_TAMs_WT_11':0, 'Tumor_TAMs_WT_12':0, 'Tumor_TAMs_WT_13':0, 'Tumor_TAMs_WT_14':0, 'Tumor_TAMs_GIVKO_11':1, 'Tumor_TAMs_GIVKO_12':1, 'Tumor_TAMs_GIVKO_13':1, 'Tumor_TAMs_GIVKO_14':1}
         self.initData(atype, atypes, ahash) 
  
@@ -20356,17 +20510,17 @@ class MacAnalysis:
         self.initData(atype, atypes, ahash) 
         
     def getHCT116_Sw480(self, tn=1):
-        self.prepareData("PG60","/Users/sataheri/public_html/Hegemon/explore.conf")
-        atype = self.h.getSurvName('c Cell protocol')
-        atypes = ['SW480', 'SW480 PF', 'HCT116', 'HCT116 PF']
-        ahash = {'SW480':0, 'SW480 PF':1, 'HCT116':2, 'HCT116 PF':3}
+        self.prepareData("cell_line_PF","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        atypes = ['HCT116_PF', 'HCT116_DMSO', 'SW480_PF', 'SW480_DMSO']
+        ahash = {'HCT116_PF':0, 'HCT116_DMSO':1, 'SW480_PF':2, 'SW480_DMSO':3}
         self.initData(atype, atypes, ahash)  
         
     def getxeno_PF(self, tn=1):
-        self.prepareData("PG20.m","/Users/sataheri/public_html/Hegemon/explore.conf")
+        self.prepareData("PG20.m","/home/saptarshi.sinha/Hegemon/explore.conf")
         atype = self.h.getSurvName('c Sample Code')
         atypes = ['XC', 'XPF']
-        ahash = {'XC1':0, 'XC20':0, 'XC3':0, 'XPF1':1, 'XPF2':1, 'XPF3':1}
+        ahash = {'XC1':0, 'XC2':0, 'XC3':0, 'XPF1':1, 'XPF2':1, 'XPF3':1}
         self.initData(atype, atypes, ahash)        
                 
     def getMarisa2013(self, tn=1):
@@ -21115,7 +21269,7 @@ class MacAnalysis:
     def getCD2023MF(self, tn=1):
         self.prepareData("PGSS12","/home/saptarshi.sinha/Hegemon/explore.conf")
         atype = self.h.getSurvName('c Sample Code')
-        atypes = ['CD', 'CD_TNF_N']
+        atypes = ['CD_TNF_Exp', 'CD_TNF_N']
         ahash = {'CD50_R MF': 0, 'CD51_R MF': 0, 'CD52_R MF': 0, 'CD57_LC MF': 0, 'CD60_I': 0, 'CD109_LC MF': 0, 'CD56-LC': 0, 'CD68_LC MF': 1, 'CD82_LC MF': 1, 'CD98_LC MF': 1}
         self.initData(atype, atypes, ahash)  
         
@@ -21707,11 +21861,20 @@ class MacAnalysis:
     def getDys_NDys(self,tn=1): 
         self.prepareData("PGSS18","/home/saptarshi.sinha/Hegemon/explore.conf")
         atype = self.h.getSurvName('c Sample')
-        atypes=['Ndys','Dys']
-        ahash={'NDys1':0,'NDys2':0,'NDys3':0,'NDys4':0,'NDys5':0,'Dys1':1,'Dys2':1,'Dys3':1,'Dys4':1,'Dys5':1}
+        atypes=['Ndys','Dys','Cancer']
+        ahash={'NDys1':0,'NDys2':0,'NDys3':1,'NDys4':0,'NDys5':2,'Dys1':1,'Dys2':2,'Dys3':2,'Dys4':2,'Dys5':1}
         tval = [ahash[i] if i in ahash else None for i in atype]
         self.initData(atype, atypes, ahash)        
         return  
+
+    def getDys_NDys2(self,tn=1): 
+        self.prepareData("PGSS18","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        atypes=['Ndys','Dys']
+        ahash={'NDys1':0,'NDys2':0,'NDys3':1,'NDys4':0,'NDys5':1,'Dys1':1,'Dys2':1,'Dys3':1,'Dys4':1,'Dys5':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        return    
     
     def getGSE12251(self,tn=1): 
         self.prepareData("PLP142","/home/saptarshi.sinha/Hegemon/explore.conf")
@@ -22057,8 +22220,16 @@ class MacAnalysis:
     def getSaeterstad2022_2(self,tn=1): 
         self.prepareData("SS64","/home/saptarshi.sinha/Hegemon/explore.conf")
         atype = self.h.getSurvName('c disease state (ch1)')
-        atypes=['HC','IBDa','IBDi']
-        ahash={'HC':0,'CDa':1,'CDu':2,'UCa':1,'UCu':2}
+        atypes=['HC','IBDa']
+        ahash={'HC':0,'CDa':1,'UCa':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getSaeterstad2022_3(self,tn=1): 
+        self.prepareData("SS64","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c disease state (ch1)')
+        atypes=['HC','CDa','UCa']
+        ahash={'HC':0,'CDa':1,'UCa':2}
         tval = [ahash[i] if i in ahash else None for i in atype]
         self.initData(atype, atypes, ahash)         
         
@@ -22076,18 +22247,44 @@ class MacAnalysis:
                 else None for i in range(len(atype))]   
         self.initData(atype, atypes, ahash) 
         
-    def get2023MF2(self,tn=1): 
+    def Ungaro2021_2(self,tn=1): 
+        self.prepareData("SS62","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c cell type (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Colon_HILEC':0}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c disease state (ch1)')
+        atypes=['Control','IBD']
+        ahash={'Control':0,'CD':1,'UC':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)        
+        
+    def get2024MF2(self,tn=1): 
         self.prepareData("PGSS20","/home/saptarshi.sinha/Hegemon/explore.conf")
         atype = self.h.getSurvName('c Sample')
         #ahash = {'IgG CTC chip': 0}
-        ahash = {'H':1,'UC':1}
+        ahash = {'H':1,'UC':1, 'CD':1}
         hval = [1 if i in ahash else None for i in atype]         
         atype = self.h.getSurvName('Treatment Type')
         atypes=['H','Naïve','Anti-TNF','Anti-Integrin','Mixed']
         ahash={'H':0,'Naïve':1,'Naïve ':1,'Anti-TNF':2,'Anti-Integrin':3,'Mixed':4}
         atype = [atype[i] if hval[i] == 1
                 else None for i in range(len(atype))]   
-        self.initData(atype, atypes, ahash)   
+        self.initData(atype, atypes, ahash)  
+        
+    def get2024MF_CD(self,tn=1): 
+        self.prepareData("PGSS20","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'CD':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Treatment Type')
+        atypes=['H','Naïve','Anti-TNF','Anti-Integrin','Mixed']
+        ahash={'H':0,'Naïve':1,'Naïve ':1,'Anti-TNF':2,'Anti-Integrin':3,'Mixed':4}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)        
         
         
     def getISPY1_310_2(self, tn=1, tb=0):
@@ -22279,4 +22476,1448 @@ class MacAnalysis:
                 else None for i in range(len(atype))]   
         self.initData(atype, atypes, ahash)        
                 
+    def getGSE161537(self,tn=1): 
+        self.prepareData("GSE161537","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c best response on immunotherapy (recist) (ch1)')
+        atypes=['PR','PD']
+        ahash={'PR':0,'PD':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)   
         
+    def getCDorg24(self,tn=1): 
+        self.prepareData("PGSS21","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Class')
+        atypes=['H','CD','UC']
+        ahash={'H':0,'CD':1, 'UC':2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getCDorg24_2(self,tn=1): 
+        self.prepareData("PGSS21","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['CD109_LC_ORG_S2_L006', 'CD98_LC_ORG_S1_L007', 'CD109_LC_ORG_S2_L007', 'CD51_R_ORG_S7_L007', 'CD109_LC_ORG_S2_L008', 'CD77_LC_ORG_S4_L007', 'CD98_LC_ORG_S1_L006', 'CD109_LC_ORG_S2_L005', 'CD51_R_ORG_S7_L006', 'CD77_LC_ORG_S4_L005', 'CD77_LC_ORG_S4_L006', 'CD98_LC_ORG_S1_L008', 'CD77_LC_ORG_S4_L008', 'CD51_R_ORG_S7_L008', 'CD51_R_ORG_S7_L005', 'CD98_LC_ORG_S1_L005']
+        ahash={'CD109_LC_ORG_S2_L006': 1,'CD98_LC_ORG_S1_L007': 2,'CD109_LC_ORG_S2_L007': 3,'CD51_R_ORG_S7_L007': 4,'CD109_LC_ORG_S2_L008': 5,'CD77_LC_ORG_S4_L007': 6,'CD98_LC_ORG_S1_L006': 7,'CD109_LC_ORG_S2_L005': 8,'CD51_R_ORG_S7_L006': 9,'CD77_LC_ORG_S4_L005': 10,'CD77_LC_ORG_S4_L006': 11,'CD98_LC_ORG_S1_L008': 12,'CD77_LC_ORG_S4_L008': 13,'CD51_R_ORG_S7_L008': 14,'CD51_R_ORG_S7_L005': 15,'CD98_LC_ORG_S1_L005': 16}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getCDorg24_3(self,tn=1): 
+        self.prepareData("PGSS21","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['grey', 'yellow']
+        ahash={'CD109_LC_ORG_S2_L006': 0,'CD98_LC_ORG_S1_L007': 0,'CD109_LC_ORG_S2_L007': 0,'CD51_R_ORG_S7_L007': 1,'CD109_LC_ORG_S2_L008': 0,'CD77_LC_ORG_S4_L007': 0,'CD98_LC_ORG_S1_L006': 0,'CD109_LC_ORG_S2_L005': 0,'CD51_R_ORG_S7_L006': 1,'CD77_LC_ORG_S4_L005': 0,'CD77_LC_ORG_S4_L006': 0,'CD98_LC_ORG_S1_L008': 0,'CD77_LC_ORG_S4_L008': 0,'CD51_R_ORG_S7_L008': 1,'CD51_R_ORG_S7_L005': 1,'CD98_LC_ORG_S1_L005': 0}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getCDorg24_4(self,tn=1): 
+        self.prepareData("PGSS21","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['grey', 'yellow', 'UC']
+        ahash={'CD109_LC_ORG_S2_L006': 0,'CD98_LC_ORG_S1_L007': 0,'CD109_LC_ORG_S2_L007': 0,'CD51_R_ORG_S7_L007': 1,'CD109_LC_ORG_S2_L008': 0,'CD77_LC_ORG_S4_L007': 0,'CD98_LC_ORG_S1_L006': 0,'CD109_LC_ORG_S2_L005': 0,'CD51_R_ORG_S7_L006': 1,'CD77_LC_ORG_S4_L005': 0,'CD77_LC_ORG_S4_L006': 0,'CD98_LC_ORG_S1_L008': 0,'CD77_LC_ORG_S4_L008': 0,'CD51_R_ORG_S7_L008': 1,'CD51_R_ORG_S7_L005': 1,'CD98_LC_ORG_S1_L005': 0, 'UC117_LC_ORG_S8_L007':2, 'UC117_LC_ORG_S8_L006':2, 'UC117_LC_ORG_S8_L005':2, 'UC117_LC_ORG_S8_L008':2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getCDorg23_3(self,tn=1): 
+        self.prepareData("PGSS19","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Disease')
+        atypes=['CD1: Grey', 'CD2: Yellow']
+        ahash={'CD1':0, 'CD2':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)    
+        
+    def getCDorg23_2(self,tn=1): 
+        self.prepareData("PGSS19","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Disease')
+        atypes=['CD1: Gray', 'CD2: Yellow', 'UC', 'He']
+        ahash={'CD1':0, 'CD2':1, 'UC':2, 'He':3}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getCDorg23_4(self,tn=1): 
+        self.prepareData("PGSS19","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Disease')
+        atypes=['CD1: Gray', 'CD2: Yellow', 'UC']
+        ahash={'CD1':0, 'CD2':1, 'UC':2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getCDorg23_5(self,tn=1): 
+        self.prepareData("PGSS19","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Disease')
+        atypes=['H', 'CD1: Gray', 'CD2: Yellow']
+        ahash={'He':0, 'CD1':1, 'CD2':2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getCDorg23_H(self,tn=1): 
+        self.prepareData("PGSS19","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Disease')
+        atypes=['H:EDM', 'H:ORG']
+        ahash={'H':0, 'He':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getCDorg23_EDM(self,tn=1): 
+        self.prepareData("PGSS19","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Disease')
+        atypes=['H:EDM', 'CD:EDM']
+        ahash={'H':0, 'CD':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)   
+        
+    def getCDorg23_CD(self,tn=1): 
+        self.prepareData("PGSS19","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Disease')
+        atypes=['CD:EDM', 'CD:PDO']
+        ahash={'CD1':1,'CD2':1,'CD':0}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getGSE210340(self,tn=1): 
+        self.prepareData("GSE210340","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes=['Gr1-HPD','Gr2-CR']
+        ahash={'H460-CM BMDMs_':0,'PC9-CM BMDMs_':0, 'A549-CM BMDMs_':1, 'H1299-CM BMDMs_':1,'Calu1-CM BMDMs_':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)   
+        
+    def getTAM1(self, tn=1, tb=0):
+        self.prepareData("PGSS22","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Source')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'TAMs':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Sample')
+        atypes = ['GIV-WT', 'GIV-KO']
+        ahash = {'GIV-WT':0, 'GIV-KO':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getTAM_tumor(self, tn=1, tb=0):
+        self.prepareData("PGSS22","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Source')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Whole tumor':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Sample')
+        atypes = ['GIV-WT', 'GIV-KO']
+        ahash = {'GIV-WT':0, 'GIV-KO':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)        
+
+    def getTAM1final(self, tn=1, tb=0):
+        self.prepareData("PGSS22","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['TAM_WT','TAM_KO']
+        ahash={'Tumor_LLC_WT-7_S72_L002':0,'Tumor_LLC_WT-6_S71_L002':0, 'Tumor_LLC_WT-8_S73_L002':0, 'Tumor_LLC_GIVKO-9_S79_L002':1,'Tumor_LLC_GIVKO-8_S78_L002':1, 'Tumor_LLC_GIVKO-10_S80_L002':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getTUMOR1final(self, tn=1, tb=0):
+        self.prepareData("PGSS22","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('pcoa')
+        atypes=['WT','GIVKO']
+        ahash={'Whole-tumor_GIV-WT_1':0,'Whole-tumor_GIV-WT_3':0,'Whole-tumor_GIV-WT_4':0,'Whole-tumor_GIV-KO_1':1,'Whole-tumor_GIV-KO_2':1, 'Whole-tumor_GIV-KO_3':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+
+    def getTHP1LPS_KO(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'GIVKO':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Source')
+        atypes = ['UN', 'LPS']
+        ahash = {'UN':0, 'LPS':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)  
+        
+    def getTHP1MDP_KO(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'GIVKO':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Source')
+        atypes = ['UN', 'MDP']
+        ahash = {'UN':0, 'MDP':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getTHP1MDP_WT(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'WT':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Source')
+        atypes = ['UN', 'MDP']
+        ahash = {'UN':0, 'MDP':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getTHP1LPS_WT(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'WT':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Source')
+        atypes = ['UN', 'LPS']
+        ahash = {'UN':0, 'LPS':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+
+    def getTHP1LPS(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('sample_source')
+        atypes=['WT_UN','WT_LPS','GIVKO_UN', 'GIVKO_LPS']
+        ahash={'WT_UN':0,'WT_LPS':1, 'GIVKO_UN':2, 'GIVKO_LPS':3}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getTHP1MDP(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('sample_source')
+        atypes=['WT_UN','WT_MDP','GIVKO_UN', 'GIVKO_MDP']
+        ahash={'WT_UN':0,'WT_MDP':1, 'GIVKO_UN':2, 'GIVKO_MDP':3}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getTHP1LPS2(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('sample_source')
+        atypes=['WT_LPS', 'GIVKO_LPS']
+        ahash={'WT_LPS':0, 'GIVKO_LPS':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getTHP1MDP2(self, tn=1, tb=0):
+        self.prepareData("PGSS23","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('sample_source')
+        atypes=['WT_MDP', 'GIVKO_MDP']
+        ahash={'WT_MDP':0, 'GIVKO_MDP':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+        
+    def getMF2324(self, tn=1, tb=0):
+        self.prepareData("PGSS24","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Diagonosis')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'CD':1, 'UC':1, 'H':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Group')
+        atypes = ['QMF', 'IMF']
+        ahash = {'Group1':0, 'Group2':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getMF2324all(self, tn=1, tb=0):
+        self.prepareData("PGSS24","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Diagonosis')
+        atypes=['H', 'CD', 'UC']
+        ahash={'H':0, 'CD':1, 'UC':2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getMF2324CD(self, tn=1, tb=0):
+        self.prepareData("PGSS24","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Sample')
+        atypes=['H', 'CD']
+        ahash={'H':0, 'CD':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getMF2324UC(self, tn=1, tb=0):
+        self.prepareData("PGSS24","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Sample')
+        atypes=['H','UC']
+        ahash={'H':0, 'UC':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getMF2324IBDgroup(self, tn=1, tb=0):
+        self.prepareData("PGSS24","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('IBDgroup')
+        atypes=['H_QMF', 'IBD_QMF', 'IBD_IMF']
+        ahash={'H_Group1':0, 'UC_Group1':1, 'CD_group1':1,'UC_Group2':2, 'CD_group2':2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getMF2324IBD(self, tn=1, tb=0):
+        self.prepareData("PGSS24","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Diagonosis')
+        atypes=['H', 'IBD']
+        ahash={'H':0, 'UC':1, 'CD':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getMF2324_Grp(self, tn=1, tb=0):
+        self.prepareData("PGSS24","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('Sample')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'CD':1, 'UC':1, 'H':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Group')
+        atypes = ['TRF','AF']
+        ahash = {'Group1':0,'Group2':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)         
+        
+    def getpritiKLF4(self, tn=1, tb=0):
+        self.prepareData("PGSS25","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c  Source')
+        atypes=['DMSO1','KLF4']
+        ahash={'DMSO1':0,'KLF4':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getpritiNKX6(self, tn=1, tb=0):
+        self.prepareData("PGSS25","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c  Source')
+        atypes=['DMSO1','NKX6']
+        ahash={'DMSO1':0,'NKX6':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getpritiPOU2F3(self, tn=1, tb=0):
+        self.prepareData("PGSS25","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c  Source')
+        atypes=['DMSO1','POU2F3']
+        ahash={'DMSO1':0,'POU2F3':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getpritiSPIB(self, tn=1, tb=0):
+        self.prepareData("PGSS25","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c  Source')
+        atypes=['DMSO','SPIB']
+        ahash={'DMSO1':0,'DMSO2':0,'SPIB':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE215067(self, tn=1, tb=0):
+        self.prepareData("GSE215067","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c prognosis (ch1)')
+        atypes=['unhealed','healed']
+        ahash={'unhealed':0,'healed':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE190634(self, tn=1, tb=0):
+        self.prepareData("GSE190634","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c treatment (ch1)')
+        atypes=['none','IFNG 20ng/mL', 'IL17A 50ng/mL + IL22 10ng/mL', 'IL22 10ng/mL', 'TNF 10ng/mL']
+        ahash={'none':0,'IFNG 20ng/mL':1, 'IL17A 50ng/mL + IL22 10ng/mL':2, 'IL22 10ng/mL':3, 'TNF 10ng/mL':4}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE190634_2(self, tn=1, tb=0):
+        self.prepareData("GSE190634","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c donor id (ch1)')
+        ahash = {'1': 1, '2':1, '3':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c treatment (ch1)')
+        atypes=['none','IFNG 20ng/mL', 'IL17A 50ng/mL + IL22 10ng/mL', 'IL22 10ng/mL', 'TNF 10ng/mL']
+        ahash={'none':0,'IFNG 20ng/mL':1, 'IL17A 50ng/mL + IL22 10ng/mL':2, 'IL22 10ng/mL':3, 'TNF 10ng/mL':4}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)         
+        
+        
+    def getEDM_fetal(self, tn=1, tb=0):
+        self.prepareData("ORG26","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Source')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Fetal':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Type')
+        atypes = ['EDM','enteroid']
+        ahash = {'EDM':0,'enteroid':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)   
+        
+    def getEDM_adult(self, tn=1, tb=0):
+        self.prepareData("ORG26","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Source')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Adult':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c Type')
+        atypes = ['EDM','enteroid']
+        ahash = {'EDM':0,'enteroid':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE153715(self, tn=1, tb=0):
+        self.prepareData("GSE153715","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes=['control jejunal organoid','crohn\'s jejunal organoid','TNF-treated control jejunal organoid','TNF-treated crohn\'s jejunal organoid']
+        ahash={'control jejunal organoid':0,'crohn\'s jejunal organoid':1, 'TNF-treated control jejunal organoid':2,'TNF-treated crohn\'s jejunal organoid':3}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE153715_2(self, tn=1, tb=0):
+        self.prepareData("GSE153715","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes=['control jejunal organoid','crohn\'s jejunal organoid','TNF-treated crohn\'s jejunal organoid']
+        ahash={'control jejunal organoid':0,'crohn\'s jejunal organoid':1,'TNF-treated crohn\'s jejunal organoid':3}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getGSE116936(self, tn=1, tb=0):
+        self.prepareData("GSE116936","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('status')
+        atypes=['Ctrl','TNF','PGE2','TNF+PGE2']
+        ahash={'Ctrl':0,'TNF':1,'PGE2':2,'TNF+PGE2':3}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getpmacMDP(self, tn=1, tb=0):
+        self.prepareData("DSSMDP","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample2')
+        atypes=['UN_WT','MDP_WT','UN_GIVKO', 'MDP_GIVKO']
+        ahash={'WT_UN':0,'WT_MDP':1, 'GIVKO_UN':2, 'GIVKO_MDP':3}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)   
+        
+    def getpmacMDPWT(self, tn=1, tb=0):
+        self.prepareData("DSSMDP","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample2')
+        atypes=['UN_WT','MDP_WT']
+        ahash={'WT_UN':0,'WT_MDP':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getpmacMDPKO(self, tn=1, tb=0):
+        self.prepareData("DSSMDP","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample2')
+        atypes=['UN_GIVKO', 'MDP_GIVKO']
+        ahash={'GIVKO_UN':0, 'GIVKO_MDP':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getxenoPF_mice(self, tn=1, tb=0):
+        self.prepareData("xenoPF_mice","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c Sample')
+        atypes=['C', 'PF']
+        ahash={'C':0, 'PF':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE261040_diff(self, tn=1, tb=0):
+        self.prepareData("GSE261040","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c genotype (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Differentiated':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c treatment (ch1)')
+        atypes = ['untreated','AIEC 541-15', 'non-AIEC T75']
+        ahash = {'untreated':0,'AIEC 541-15':1, 'non-AIEC T75':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)   
+        
+    def getGSE261040_Undiff(self, tn=1, tb=0):
+        self.prepareData("GSE261040","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c genotype (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Undifferentiated':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c treatment (ch1)')
+        atypes = ['untreated','AIEC 541-15', 'non-AIEC T75']
+        ahash = {'untreated':0,'AIEC 541-15':1, 'non-AIEC T75':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE261040_Untreated(self, tn=1, tb=0):
+        self.prepareData("GSE261040","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c treatment (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'untreated':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c genotype (ch1)')
+        atypes = ['Undifferentiated', 'Differentiated']
+        ahash = {'Undifferentiated':0, 'Differentiated':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)         
+        
+    def getGSE197698_WT(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_CNM','WT_organoid_eCDM', 'WT_organoid_cCDM']
+        ahash = {'WT_organoid_CNM':0,'WT_organoid_eCDM':1, 'WT_organoid_cCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE197698_CD(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['CD_organoid_CNM','CD_organoid_eCDM', 'CD_organoid_cCDM']
+        ahash = {'CD_organoid_CNM':0,'CD_organoid_eCDM':1, 'CD_organoid_cCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE197698_UC(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['UC_monolayer_CNM','UC_monolayer_eCDM', 'UC_monolayer_cCDM']
+        ahash = {'UC_monolayer_CNM':0,'UC_monolayer_eCDM':1, 'UC_monolayer_cCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+
+    def getGSE197698_CNM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes=['CD_monolayer_CNM', 'CD_organoid_CNM']
+        ahash={'CD_monolayer_CNM':0, 'CD_organoid_CNM':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE197698_eDM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes=['CD_monolayer_eCDM', 'CD_organoid_eCDM']
+        ahash={'CD_monolayer_eCDM':0, 'CD_organoid_eCDM':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE197698_cDM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes=['CD_monolayer_cCDM', 'CD_organoid_cCDM']
+        ahash={'CD_monolayer_cCDM':0, 'CD_organoid_cCDM':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE197698_MonoCNM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_monolayer_CNM','CD_monolayer_CNM', 'UC_monolayer_CNM']
+        ahash = {'WT_monolayer_CNM':0,'CD_monolayer_CNM':1, 'UC_monolayer_CNM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE197698_MonocDM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_monolayer_cCDM','CD_monolayer_cCDM', 'UC_monolayer_cCDM']
+        ahash = {'WT_monolayer_cCDM':0,'CD_monolayer_cCDM':1, 'UC_monolayer_cCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE197698_MonoeDM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_monolayer_eCDM','CD_monolayer_eCDM', 'UC_monolayer_eCDM']
+        ahash = {'WT_monolayer_eCDM':0,'CD_monolayer_eCDM':1, 'UC_monolayer_eCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+        
+    def getGSE197698_OrgCNM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_CNM','CD_organoid_CNM', 'UC_organoid_CNM']
+        ahash = {'WT_organoid_CNM':0,'CD_organoid_CNM':1, 'UC_organoid_CNM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE197698_OrgcDM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_cCDM','CD_organoid_cCDM', 'UC_organoid_cCDM']
+        ahash = {'WT_organoid_cCDM':0,'CD_organoid_cCDM':1, 'UC_organoid_cCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE197698_OrgeDM(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_eCDM','CD_organoid_eCDM', 'UC_organoid_eCDM']
+        ahash = {'WT_organoid_eCDM':0,'CD_organoid_eCDM':1, 'UC_organoid_eCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE197698_OrgCNM_I(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ileum':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_CNM','CD_organoid_CNM', 'UC_organoid_CNM']
+        ahash = {'WT_organoid_CNM':0,'CD_organoid_CNM':1, 'UC_organoid_CNM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE197698_OrgcDM_I(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ileum':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_cCDM','CD_organoid_cCDM', 'UC_organoid_cCDM']
+        ahash = {'WT_organoid_cCDM':0,'CD_organoid_cCDM':1, 'UC_organoid_cCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE197698_OrgeDM_I(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ileum':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_eCDM','CD_organoid_eCDM', 'UC_organoid_eCDM']
+        ahash = {'WT_organoid_eCDM':0,'CD_organoid_eCDM':1, 'UC_organoid_eCDM':2}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)   
+        
+    def getGSE197698_allH(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['WT_organoid_CNM', 'WT_monolayer_CNM', 'WT_organoid_eCDM','WT_monolayer_eCDM', 'WT_organoid_cCDM','WT_monolayer_cCDM']
+        ahash = {'WT_organoid_CNM':0, 'WT_monolayer_CNM':1, 'WT_organoid_eCDM':2,'WT_monolayer_eCDM':3, 'WT_organoid_cCDM':4,'WT_monolayer_cCDM':5}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE197698_allCD(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['CD_organoid_CNM', 'CD_monolayer_CNM', 'CD_organoid_eCDM','CD_monolayer_eCDM', 'CD_organoid_cCDM','CD_monolayer_cCDM']
+        ahash = {'CD_organoid_CNM':0, 'CD_monolayer_CNM':1, 'CD_organoid_eCDM':2,'CD_monolayer_eCDM':3, 'CD_organoid_cCDM':4,'CD_monolayer_cCDM':5}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE197698_allUC(self, tn=1, tb=0):
+        self.prepareData("GSE197698","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c tissue (ch1)')
+        ahash = {'(Ascending) Colon':1, '(Distal) Colon':1, 'Proximal Colon':1,'(Proximal) Colon)':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('c source_name (ch1)')
+        atypes = ['UC_organoid_CNM', 'UC_monolayer_CNM', 'UC_organoid_eCDM','UC_monolayer_eCDM', 'UC_organoid_cCDM','UC_monolayer_cCDM']
+        ahash = {'UC_organoid_CNM':0, 'UC_monolayer_CNM':1, 'UC_organoid_eCDM':2,'UC_monolayer_eCDM':3, 'UC_organoid_cCDM':4,'UC_monolayer_cCDM':5}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE244820(self, tn=1, tb=0):
+        self.prepareData("GSE244820","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c treatment (ch1)')
+        atypes=['Vehicle_AT2','Infected_AT2', 'Infected_Transitional AT2']
+        ahash={'Vehicle_AT2':0,'Infected_AT2':1, 'Infected_Transitional AT2':2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE244820_Inf(self, tn=1, tb=0):
+        self.prepareData("GSE244820","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c treatment (ch1)')
+        atypes=['Vehicle_AT2','Infected_AT2']
+        ahash={'Vehicle_AT2':0,'Infected_AT2':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE244820_TransInf(self, tn=1, tb=0):
+        self.prepareData("GSE244820","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c treatment (ch1)')
+        atypes=['Vehicle_AT2','Infected_Transitional AT2']
+        ahash={'Vehicle_AT2':0,'Infected_Transitional AT2':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE214695PsB(self, tn=1, tb=0):
+        self.prepareData("GSE214695","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','CD', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 2,'UC2': 2,'UC3': 2,'UC4': 2,'UC5': 2,'UC6': 2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE214695PsB_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getGSE214695PsB2(self, tn=1, tb=0):
+        self.prepareData("GSE214695_2","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','CD', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 2,'UC2': 2,'UC3': 2,'UC4': 2,'UC5': 2,'UC6': 2}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)    
+        
+        
+    def GSE214695NKcell_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695NKcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695NKcell_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695NKcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695NKcell_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695NKcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)          
+        
+    def GSE214695Stromal_ADAMDEC1_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Stromal_ADAMDEC1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Stromal_ADAMDEC1_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Stromal_ADAMDEC1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695Stromal_ADAMDEC1_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Stromal_ADAMDEC1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695Tuft_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Tuft","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Tuft_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Tuft","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE214695Tuft_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Tuft","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695Activated_CD8T_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Activated_CD8T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Activated_CD8T_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Activated_CD8T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695Activated_CD8T_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Activated_CD8T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)         
+        
+    def GSE214695Activated_CD4T_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Activated_CD4T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Activated_CD4T_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Activated_CD4T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE214695Activated_CD4T_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Activated_CD4T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695MemoryB_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695MemoryB","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695MemoryB_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695MemoryB","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695MemoryB_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695MemoryB","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695Colonocyte_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Colonocyte","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Colonocyte_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Colonocyte","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695Colonocyte_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Colonocyte","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)         
+        
+    def GSE214695Cycling_plasmacell_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Cycling_plasmacell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Cycling_plasmacell_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Cycling_plasmacell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE214695Cycling_plasmacell_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Cycling_plasmacell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695Macrophage_LYVE1_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Macrophage_LYVE1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Macrophage_LYVE1_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Macrophage_LYVE1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695Macrophage_LYVE1_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Macrophage_LYVE1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695Mastcell_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Mastcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Mastcell_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Mastcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695Mastcell_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Mastcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695NaiveB_STAT1_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695NaiveB_STAT1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695NaiveB_STAT1_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695NaiveB_STAT1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE214695NaiveB_STAT1_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695NaiveB_STAT1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)         
+        
+    def GSE214695Stromal_CCL11_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695NaiveB_STAT1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Stromal_CCL11_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695NaiveB_STAT1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE214695Stromal_CCL11_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Stromal_CCL11","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE214695Gobletcell_CD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Gobletcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'CD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE214695Gobletcell_UC(self, tn=1, tb=0):
+        self.prepareData("GSE214695Gobletcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H', 'UC']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695Gobletcell_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695Gobletcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE214695IgA_plasmacell_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695IgA_plasmacell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE214695IgG_plasmacell_IBD(self, tn=1, tb=0):
+        self.prepareData("GSE214695IgG_plasmacell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE214695Th1(self, tn=1, tb=0):
+        self.prepareData("GSE214695Th1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)   
+        
+    def getGSE214695Th17(self, tn=1, tb=0):
+        self.prepareData("GSE214695Th17","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE214695Treg(self, tn=1, tb=0):
+        self.prepareData("GSE214695Treg","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE214695cDC2(self, tn=1, tb=0):
+        self.prepareData("GSE214695cDC2","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)  
+        
+    def getGSE214695gdT(self, tn=1, tb=0):
+        self.prepareData("GSE214695gdT","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)    
+        
+    def getGSE214695TA(self, tn=1, tb=0):
+        self.prepareData("GSE214695TA","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE214695Paneth(self, tn=1, tb=0):
+        self.prepareData("GSE214695Paneth","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['H','IBD']
+        ahash={'H1': 0,'H2': 0,'H3': 0,'H4': 0,'H5': 0,'H6': 0,'CD1': 1,'CD2': 1,'CD3': 1,'CD4': 1,'CD5': 1,'CD6': 1,'UC1': 1,'UC2': 1,'UC3': 1,'UC4': 1,'UC5': 1,'UC6': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getGSE282122TA(self, tn=1, tb=0):
+        self.prepareData("GSE282122TA","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE282122NKcell(self, tn=1, tb=0):
+        self.prepareData("GSE282122NKcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE282122Stromal_ADAMDEC1(self, tn=1, tb=0):
+        self.prepareData("GSE282122Stromal_ADAMDEC1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE282122Stromal_CCL11(self, tn=1, tb=0):
+        self.prepareData("GSE282122Stromal_CCL11","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)   
+        
+    def getGSE282122IgG_plasmacell(self, tn=1, tb=0):
+        self.prepareData("GSE282122IgG_plasmacell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE282122Treg(self, tn=1, tb=0):
+        self.prepareData("GSE282122Treg","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE282122TH1(self, tn=1, tb=0):
+        self.prepareData("GSE282122TH1","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)      
+        
+    def getGSE282122TH17(self, tn=1, tb=0):
+        self.prepareData("GSE282122TH17","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)         
+        
+    def getGSE282122CD4T(self):
+        self.prepareData("GSE282122CD4T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE282122CD8T(self):
+        self.prepareData("GSE282122CD8T","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)   
+        
+    def getGSE282122Tuft(self):
+        self.prepareData("GSE282122Tuft","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)   
+        
+    def getGSE282122Macrophages(self):
+        self.prepareData("GSE282122Macrophages","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE282122Gobletcell(self):
+        self.prepareData("GSE282122Gobletcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE282122Mastcell(self):
+        self.prepareData("GSE282122Mastcell","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE282122Paneth(self):
+        self.prepareData("GSE282122Paneth","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)        
+        
+    def GSE282122pseudobulk_all(self, tn=1, tb=0):
+        self.prepareData("GSE282122pseudobulk_all","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c inflammation (ch1)')
+        atypes=['Inflamed','Non_Inflamed']
+        ahash={'Inflamed':0,'Non_Inflamed':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def GSE282122myofibroblast(self, tn=1, tb=0):
+        self.prepareData("GSE282122myofibroblast","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def GSE282122Colonocyte_I(self, tn=1, tb=0):
+        self.prepareData("GSE282122Colonocyte","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c inflammation (ch1)')
+        atypes=['Inflamed','Non_Inflamed']
+        ahash={'Inflamed':0,'Non_Inflamed':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+
+    def getGSE282122Colonocyte(self, tn=1, tb=0):
+        self.prepareData("GSE282122Colonocyte","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c site (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'Ascending_Colon':1, 'Descending_Colon':1, 'Rectum': 1, 'Sigmoid':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName('Rem')
+        atypes=['Y','N']
+        ahash={'Y':0,'N':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)    
+        
+    def getGSE106233(self):
+        self.prepareData("GSE106233","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('c genotype/variation (ch1)')
+        atypes=['Cldn18 wild-type','Cldn18 kock-out']
+        ahash={'Cldn18 wild-type':0,'Cldn18 kock-out':1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)        
+        
+    def getVerstockt2019_2(self):
+        self.prepareData("PLP73")
+        atype = self.h.getSurvName('c organism part')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'colon':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName("c clinical history")
+        atypes = ['R', 'NR']
+        ahash = {'responder':0, 'non-responder':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def BorokSc(self, tn=1, tb=0):
+        self.prepareData("BorokSc","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['WTD0','WTD3','WTD7','KOD0','KOD3','KOD7']
+        ahash={'S9_3.0': 0 , 'S9_2.0': 0 , 'S9_1.0': 0 , 'S4_3.0': 1 , 'S4_2.0': 1 , 'S4_1.0': 1 , 'S7_2.0': 2 , 'S7_1.0': 2 , 'S7_3.0': 2 , 'S10_3.0': 3 , 'S10_2.0': 3 , 'S10_1.0': 3 , 'S5_3.0': 4 , 'S5_2.0': 4 , 'S5_1.0': 4 , 'S8_3.0': 5 , 'S8_2.0': 5 , 'S8_1.0': 5}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def BorokSc2(self, tn=1, tb=0):
+        self.prepareData("BorokSc","/home/saptarshi.sinha/Hegemon/explore.conf")
+        atype = self.h.getSurvName('ArrayID')
+        atypes=['WT','KO']
+        ahash={'S9_3.0': 0 , 'S9_2.0': 0 , 'S9_1.0': 0 , 'S4_3.0': 0 , 'S4_2.0': 0 , 'S4_1.0': 0 , 'S7_2.0': 0 , 'S7_1.0': 0 , 'S7_3.0': 0 , 'S10_3.0': 1 , 'S10_2.0': 1 , 'S10_1.0': 1 , 'S5_3.0': 1 , 'S5_2.0': 1 , 'S5_1.0': 1 , 'S8_3.0': 1 , 'S8_2.0': 1 , 'S8_1.0': 1}
+        tval = [ahash[i] if i in ahash else None for i in atype]
+        self.initData(atype, atypes, ahash)
+        
+    def getGSE277964_MF(self):
+        self.prepareData("GSE277964")
+        atype = self.h.getSurvName('c cell type (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'fibroblast':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName("c_phenotype")
+        atypes = ['healthyt', 'IBD']
+        ahash = {'healthy_strain':0, 'healthy_no_strain':0, 'IBD_strain':1, 'IBD_no_strain':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash) 
+        
+    def getGSE277964_Epi(self):
+        self.prepareData("GSE277964")
+        atype = self.h.getSurvName('c cell type (ch1)')
+        #ahash = {'IgG CTC chip': 0}
+        ahash = {'epithelial':1}
+        hval = [1 if i in ahash else None for i in atype]         
+        atype = self.h.getSurvName("c_phenotype")
+        atypes = ['healthyt_no_strain', 'IBD_no_strain']
+        ahash = {'healthy_no_strain':0, 'IBD_no_strain':1}
+        atype = [atype[i] if hval[i] == 1
+                else None for i in range(len(atype))]   
+        self.initData(atype, atypes, ahash)        
