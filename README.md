@@ -61,12 +61,14 @@ The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IB
 - **`HegemonUtil.py`**: Utility functions for transcriptomics data handling.
 - **`bone.py`**: Core computational module for Boolean implication network processing.
 - **`explore.conf`**: Configuration file specifying datasets used in analysis.
-- **`34.txt`**: Defines the **34-gene remission signature**.
 - **`target_gene.txt`**: List of drug **target genes** for evaluation.
-- **`result_agonist.txt`**: Stores computed FORWARD scores for agonist targets.
+- **`composite_score_AUC.ipynb`**: Notebook showing composite score and area under the curve calculation using the bone framework.
+- **`Multivariate and Univariate analysis.ipynb`**: Notebook showing multivariate and univariate calculation using the bone framework.
+
 
 ## Contact
-For any questions or collaboration inquiries, please contact **Saptarshi Sinha** at [sasinha@health.ucsd.edu].
+For any collaboration inquiries, please contact **Pradipta Ghosh** at [prghosh@health.ucsd.edu].
+For any technical/computational inquiries, please contact **Saptarshi Sinha** at [sasinha@health.ucsd.edu].
 
 ---
 ### **Reference**
