@@ -15,7 +15,7 @@ FORWARD (**Framework for Outcome-based Research and Drug Development**) is a mac
 ### Prerequisites
 Ensure that you have the following dependencies installed before using FORWARD:
 - Python (>=3.8)
-- R (>=4.0)
+
 - Required Python packages:
   ```bash
   pip install numpy pandas scipy networkx matplotlib seaborn scikit-learn opencv-python pillow json5
@@ -23,10 +23,6 @@ Ensure that you have the following dependencies installed before using FORWARD:
 - Additional Python libraries:
   ```bash
   pip install pprint os-sys pickle5
-  ```
-- Required R packages:
-  ```r
-  install.packages(c("ggplot2", "dplyr", "tidyverse"))
   ```
 
 ### Clone the Repository
