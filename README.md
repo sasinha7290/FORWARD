@@ -9,7 +9,6 @@ FORWARD (**Framework for Outcome-based Research and Drug Development**) is a mac
 - **Connectivity Index (CI) Calculation**: Evaluates how strongly a target gene is connected to remission-associated genes.
 - **Likelihood of Approval Index (LoAI)**: Integrates TI and CI scores to predict a drug target's potential clinical success.
 - **Real-World Data Integration**: Uses transcriptomic data from randomized clinical trials for training and validation.
-- **Predictive Target Ranking**: Identifies optimal drug targets for phase 3 success based on transcriptomic response markers.
 
 ## Installation
 ### Prerequisites
@@ -33,16 +32,15 @@ cd FORWARD
 
 ## Usage
 ### Computing FORWARD Score
-The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IBD_pipeline.ipynb`. This notebook integrates transcriptomic datasets, applies **Boolean implication analysis**, and evaluates therapeutic potential using **network connectivity metrics**.
+The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IBD_pipeline.ipynb`. This notebook integrates transcriptomic datasets (stored at **processed_dataset** directory), applies **Boolean implication analysis**, and evaluates therapeutic potential using **network connectivity metrics**.
 
 #### **1. Prepare Input Data**
-   - Ensure gene expression and metadata files are formatted correctly.
-   - Place input files in the `data/` directory.
-   - The **34-gene remission signature** is defined in `34.txt`.
+   - Ensure gene expression and metadata files are formatted correctly (example dataset is provided in **processed_dataset** directory).
+   - The **34-gene remission signature** is defined in `34.txt` (kept in ***Gene_signature** directory).
    - The list of drug **target genes** for analysis is in `target_gene.txt`.
 
 #### **2. Run the FORWARD Pipeline**
-   Open and execute `PreCSN_IBD_pipeline.ipynb` using Jupyter Notebook:
+   Open and execute `PreCSN_IBD_pipeline.ipynb` using Jupyter Notebook (Required codes: bone.py, HegemonUtil.py, StepMiner.py):
    ```bash
    jupyter notebook PreCSN_IBD_pipeline.ipynb
    ```
@@ -53,23 +51,9 @@ The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IB
    - **Therapeutic Index (TI) Computation**: Measures the likelihood that targeting a gene will induce the remission-associated signature.
    - **Connectivity Index (CI) Calculation**: Evaluates the strength of a target gene’s connection to the remission signature.
    - **Likelihood of Approval Index (LoAI)**: Aggregates TI and CI to predict a drug's likelihood of success.
-   - **Visualization**: Generates violin plots, ROC curves, and **volcano plots** for target evaluation.
-
-#### **4. Example Command to Compute FORWARD Scores**
-   Run the following script within the notebook to compute scores:
-   ```python
-   from bone import MacAnalysis
-   ana = MacAnalysis()
-   ana.getGSE14580()
-   processData(ana, ['target_gene.txt'], 1)
-   ```
-
    - **Example Target Analysis**: `target_gene.txt` contains `PRKAB1`, which is evaluated using the pipeline.
-   - **Result Interpretation**: The computed FORWARD score for `PRKAB1` is found in `result_agonist.txt`.
-
-#### **5. Output Files**
-   - **Results Directory**: Computed FORWARD scores stored in `results/`
-   - **Figures Directory**: ROC-AUC curves, violin plots, and volcano plots for target evaluation.
+   - **Results Directory**: Computed FORWARD scores stored in `Results/`
+   - **Result Interpretation**: The computed FORWARD score for `PRKAB1` is found in `result_agonist.txt', or, 'result_antagonist.txt` along with its TI based on the type of target.
 
 ## Repository Components
 - **`PreCSN_IBD_pipeline.ipynb`**: Main notebook for computing FORWARD scores.
@@ -80,20 +64,6 @@ The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IB
 - **`34.txt`**: Defines the **34-gene remission signature**.
 - **`target_gene.txt`**: List of drug **target genes** for evaluation.
 - **`result_agonist.txt`**: Stores computed FORWARD scores for agonist targets.
-
-## Example
-A sample dataset is provided in the `data/` folder. You can run the tool using:
-```bash
-python forward.py --input data/sample_data.csv --output results/sample_output.csv
-```
-
-## Contributing
-Contributions are welcome! Please follow these steps:
-1. Fork the repository.
-2. Create a feature branch (`git checkout -b feature-branch`).
-3. Commit changes (`git commit -m 'Add new feature'`).
-4. Push to your branch (`git push origin feature-branch`).
-5. Open a pull request.
 
 ## Contact
 For any questions or collaboration inquiries, please contact **Saptarshi Sinha** at [sasinha@health.ucsd.edu].
