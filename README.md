@@ -66,7 +66,7 @@ The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IB
 - **`Multivariate and Univariate analysis.ipynb`**: Notebook showing multivariate and univariate calculation using the bone framework.
 
 
-## Contact
+## Contact:
 For any collaboration inquiries, please contact **Pradipta Ghosh** at [prghosh@health.ucsd.edu].
 For any technical/computational inquiries, please contact **Saptarshi Sinha** at [sasinha@health.ucsd.edu].
 
