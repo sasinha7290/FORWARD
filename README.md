@@ -36,7 +36,7 @@ The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IB
 
 #### **1. Prepare Input Data**
    - Ensure gene expression and metadata files are formatted correctly (example dataset is provided in **processed_dataset** directory).
-   - The **34-gene remission signature** is defined in `34.txt` (kept in ***Gene_signature** directory).
+   - The **34-gene remission signature** is defined in `34.txt` (kept in **Gene_signature** directory).
    - The list of drug **target genes** for analysis is in `target_gene.txt`.
 
 #### **2. Run the FORWARD Pipeline**
@@ -53,7 +53,7 @@ The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IB
    - **Likelihood of Approval Index (LoAI)**: Aggregates TI and CI to predict a drug's likelihood of success.
    - **Example Target Analysis**: `target_gene.txt` contains `PRKAB1`, which is evaluated using the pipeline.
    - **Results Directory**: Computed FORWARD scores stored in `Results/`
-   - **Result Interpretation**: The computed FORWARD score for `PRKAB1` is found in `result_agonist.txt', or, 'result_antagonist.txt` along with its TI based on the type of target.
+   - **Result Interpretation**: The computed FORWARD score for `PRKAB1` can be found in `result_agonist.txt', or, 'result_antagonist.txt` along with its TI score, based on the type of target.
 
 ## Repository Components
 - **`PreCSN_IBD_pipeline.ipynb`**: Main notebook for computing FORWARD scores.
