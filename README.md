@@ -64,6 +64,7 @@ The main pipeline for computing **FORWARD scores** of target genes is `PreCSN_IB
 - **`target_gene.txt`**: List of drug **target genes** for evaluation.
 - **`composite_score_AUC.ipynb`**: Notebook showing composite score and area under the curve calculation using the bone framework.
 - **`Multivariate and Univariate analysis.ipynb`**: Notebook showing multivariate and univariate calculation using the bone framework.
+- **`LRT_AIC_BIC.ipynb`**: Notebook showing calculation of the LRT (likelihood ratio test), AIC (Akaike Information Criterion), and BIC (Bayesian Information Criterion). Model training raw data with Responder (Y) and Non-responder (N) annotations are provided in **processed_dataset** directory.
 
 
 ## Contact:
