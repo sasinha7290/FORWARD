@@ -1,0 +1,10 @@
+numpy
+pandas
+scipy
+networkx
+matplotlib
+seaborn
+scikit-learn
+opencv-python
+pillow
+json5
