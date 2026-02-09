@@ -1,4 +1,4 @@
-# FORWARD: F.O.R.W.A.R.D: An interpretable AI framework for target prioritization using end-to-end human evidence
+# F.O.R.W.A.R.D: An interpretable AI framework for target prioritization using end-to-end human evidence
 
 ## Overview
 FORWARD (Framework for Outcome-based Research and Drug Development) is an interpretable, machine-learning–guided framework that integrates clinical-trial transcriptomics with Boolean implication logic to prioritize drug targets. FORWARD defines a remission-associated transcriptional state and computes outcome-aligned target scores based on network connectivity to this state.
